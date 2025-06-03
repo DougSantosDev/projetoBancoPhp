@@ -8,19 +8,13 @@ class Account {
         $this->balance = 0;
     }
 
-    public function getNumber() {
-        return $this->number;
-    }
+    public function getNumber() { return $this->number; }
+    public function getBalance() { return $this->balance; }
 
-    public function getBalance() {
-        return $this->balance;
-    }
-
-    public function deposit($amount) {
-        $this->balance += $amount;
-    }
-
+    public function deposit($amount) { $this->balance += $amount; }
     public function withdraw($amount) {
-        $this->balance -= $amount;
+        if ($amount <= $this->balance) {
+            $this->balance -= $amount;
+        }
     }
 }
